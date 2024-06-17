@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import SpotifyView from '../views/SpotifyView.vue'
+import CollectView from '../views/CollectView.vue'
 import Rank from '../components/Rank.vue'
 
 const routes = [
@@ -18,6 +19,11 @@ const routes = [
     path:'/spotify',
     name:'spotify',
     component: SpotifyView
+  },
+  {
+    path:'/collect',
+    name:'collect',
+    component: CollectView
   }
 ]
 

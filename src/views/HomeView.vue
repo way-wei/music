@@ -33,7 +33,7 @@
 
       <v-card class="pa-4 mb-4" color="#17163c">
         <v-img
-          src="https://cdn.vuetifyjs.com/images/cards/desert.jpg"
+          src="../assets/skzoo.jpeg"
           aspect-ratio="2.75"
         ></v-img>
 
@@ -42,7 +42,7 @@
             <h3 class="headline mb-0">收藏</h3>
           </div>
         </v-card-title>
-        <v-btn class="ma-2" color="#ecebc3">前往</v-btn>
+        <v-btn class="ma-2" color="#ecebc3" to="/collect">前往</v-btn>
       </v-card>
 
     </v-col>

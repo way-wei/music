@@ -16,6 +16,7 @@
         <v-card v-for="item in listData.artists.items" :key="item.data.uri" class="pa-4 mb-4">
             <h3>{{ item.data.profile.name }}</h3>
             <img :src="getAvatarUrl(item)" :alt="item.data.profile.name" width="200" height="200">
+            
         </v-card>
         </div>
         <div v-else>
@@ -27,7 +28,7 @@
 
 <script>
 import { ref, } from 'vue';
-import { spotifyData } from '../services/music';
+import { spotifyData,createMusic } from '../services/music';
 export default {
     
     setup(){
@@ -46,9 +47,9 @@ export default {
                                         avatarImage: {
                                         sources: [
                                             {
-                                            url:"",
-                                            width:0,
-                                            height:0,
+                                                url:"",
+                                                width:0,
+                                                height:0,
                                             },
                                         ]
                                         }
@@ -80,8 +81,14 @@ export default {
         }
 
         const getAvatarUrl = (item) => {
-        return item.data.visuals.avatarImage.sources[0].url; // 這裡需要根據實際資料結構來取得正確的頭像 URL
+            if(item.data.visuals.avatarImage != null){
+                return item.data.visuals.avatarImage.sources[0].url;
+            }
+            else{
+                return null;
+            }
         }
+
 
         return{
             search,

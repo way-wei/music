@@ -30,6 +30,7 @@
                     <div>Weeks on Chart: {{ item['weeks on chart'] }}</div>
                     <div>Detail: {{ item.detail }}</div>
                     </v-card-text>
+                    <v-btn @click="storeMusic(item)">加入收藏</v-btn>
                 </v-card>
             </div>
         </v-row>
@@ -39,7 +40,7 @@
 
 <script>
 import { ref, } from 'vue';
-import { getData } from '../services/music';
+import { getData,createMusic } from '../services/music';
 
 export default {
   setup() {
@@ -59,10 +60,22 @@ export default {
         });
     };
 
+    const storeMusic = (item) => {
+            createMusic({
+                name: item.rank,
+                artist: item.title,
+            }).then(res => {
+                alert(res.message);
+            }).catch(error => {
+                alert('新增失敗' + error);
+            });
+        };
+
     return {
       selectedDate,
       listData,
-      getDatas
+      getDatas,
+      storeMusic
     };
   }
 };
